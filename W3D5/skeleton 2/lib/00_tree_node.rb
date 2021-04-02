@@ -32,9 +32,6 @@ class PolyTreeNode
         child_node.parent=(nil)
     end
 
-
-
-    
     def dfs(target_value)
         return self if self.value == target_value
          
@@ -48,4 +45,17 @@ class PolyTreeNode
     end
 
 
+
+    def bfs(target_value)    
+        new_arr = [self]
+        until new_arr.empty?
+            el = new_arr.shift
+            if el.value == target_value
+                return el
+            else 
+            el.children.each {|child| new_arr<< child}
+            end 
+        end 
+    end
+   
 end
