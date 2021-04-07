@@ -3,7 +3,7 @@ require_relative "-/Piece.rb"
 class Bishop < Piece
     include Slideable
     def symbol
-        "#{symbol}"
+        "#{B}"
     end
 
     private

@@ -3,7 +3,7 @@ require_relative "-/Piece.rb"
 class Rook < Piece
     include Slideable
     def symbol
-        "#{symbol}"
+        "#{R}"
     end
 
     private

@@ -3,7 +3,7 @@ require_relative "-/Piece.rb"
 class Queen < Piece
     include Slideable
     def symbol
-        "#{symbol}"
+        "#{Q}"
     end
 
     private

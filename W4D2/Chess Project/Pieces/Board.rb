@@ -39,7 +39,20 @@ class Board
         pieces.any?{|p| p.color != color && p.moves.include?(king[pos])}
     end
 
-    def move_piece(start_pos,end_pos)
+    def move_piece(turn_color,start_pos,end_pos)
+        raise "Starting postition is empty" if empty?(start_pos)
+        p = self[start_pos]
+        if p.color != turn_color
+            raise "You have to move your own piece."
+        elsif !p.moves.include?(end_pos)
+            raise "This piece cannnot move like that."
+        elsif !p.valid_moves.include?(end_pos)
+            raise "Cannot move into cheeck"
+        end 
+        move_piece!(start_pos,end_pos)
+    end
+
+    def move_piece!(start_pos,end_pos)
         piece = self[start_pos]
         raise "Can't move piece this way." unless piece.moves.include?(pos)
         self[end_pos] == piece

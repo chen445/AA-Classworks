@@ -32,16 +32,21 @@ MOVES = {
 
 class Cursor
 
-  attr_reader :cursor_pos, :board
+  attr_reader :cursor_pos, :board , selected
 
   def initialize(cursor_pos, board)
     @cursor_pos = cursor_pos
     @board = board
+    @selected = false
   end
 
   def get_input
     key = KEYMAP[read_char]
     handle_key(key)
+  end
+
+  def toggle_select
+    @selected = !selected
   end
 
   private
@@ -76,8 +81,22 @@ class Cursor
   end
 
   def handle_key(key)
+    case key
+    when :ctrl_c 
+      exit 0 
+    when :return , :space
+      toggle_select
+      cursor_pos
+    when :left, :right , :up , :down
+      update_pos(MOVES[key])
+      nil 
+    else  
+      puts key
+    end 
   end
 
   def update_pos(diff)
+    new_pos = [cursor_pos[0]+diff[0],cursor_pos[1]+diff[1]]
+    @cursor_pos = new_pos if board.valid_pos?(new_pos)
   end
 end

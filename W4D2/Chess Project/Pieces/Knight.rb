@@ -14,7 +14,7 @@ class Knight < Piece
     ]
     include Stepable
     def symbol
-        "#{symbol}"
+        "#{Kn}"
     end
 
     protected

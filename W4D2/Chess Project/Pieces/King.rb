@@ -13,7 +13,7 @@ class King < Piece
     ]
     include Stepable
     def symbol
-        "#{symbol}"
+        "#{K}"
     end
 
     protected
