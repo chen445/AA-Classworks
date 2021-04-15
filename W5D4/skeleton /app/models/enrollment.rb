@@ -1,5 +1,16 @@
+# == Schema Information
+#
+# Table name: enrollments
+#
+#  id         :bigint           not null, primary key
+#  course_id  :integer
+#  student_id :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 class Enrollment < ApplicationRecord
     
+    # validates: :course_id, :student_id, presence: true, uniqueness: true
 
 
     belongs_to :user,
@@ -15,3 +26,12 @@ class Enrollment < ApplicationRecord
     
         
 end
+
+#QUESTIONS
+
+# begin=
+#     validates: diff between scope and regular
+#     how to create annotate
+#     through and source
+    
+# end=
