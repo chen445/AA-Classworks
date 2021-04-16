@@ -7,6 +7,8 @@ def it_was_ok
   #
   # Find the id, title, and score of all movies with scores between 2 and 3
 
+  Movie.where(score: 2..3).select(:id, :title, :score)
+
 end
 
 def harrison_ford
@@ -20,6 +22,8 @@ def harrison_ford
   #
   # Find the id and title of all movies in which Harrison Ford
   # appeared but not as a lead actor
+  id = Actor.find_by(name:'Harrison Ford').id
+  Movie.joins(:castings).where(castings: {actor_id:id}).where.not(castings: {ord:1}).select(:id,:title)
 
 end
 
