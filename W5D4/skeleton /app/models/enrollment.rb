@@ -9,9 +9,7 @@
 #  updated_at :datetime         not null
 #
 class Enrollment < ApplicationRecord
-    
     # validates: :course_id, :student_id, presence: true, uniqueness: true
-
 
     belongs_to :user,
         primary_key: :id,
@@ -22,9 +20,7 @@ class Enrollment < ApplicationRecord
         primary_key: :id,
         foreign_key: :course_id,
         class_name: :Course
-
-    
-        
+  
 end
 
 #QUESTIONS
