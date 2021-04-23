@@ -1,0 +1,42 @@
+/* PHASE 2: Notifications */
+.badge{
+    display: inline;
+    background:red;
+    border-radius: 50%;
+}
+
+.header{
+    position: relative;
+    z-index: 1;
+}
+
+.notifications-dropdown{
+    display: none;
+    position: absolute;
+    overflow: hidden;
+    background-color: white;
+    left: -1px;
+    white-space: nowrap;
+}
+
+.header-list >li {
+    position: relative;
+}
+
+.notifications-dropdown > li:hover{
+    background: gray;
+}
+
+li:hover .notifications-dropdown{
+    display: block;
+}
+
+li:hover .badge{
+    background: red;
+}
+
+.notifications-dropdown a{
+    color:black;
+    text-decoration: none;
+     border-bottom: 1px solid,black
+}
