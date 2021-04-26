@@ -20,8 +20,10 @@ class CatRentalRequestsController < ApplicationController
   end
 
   def deny
+    if current_user.cats.includes?(current_cat)
     current_cat_rental_request.deny!
     redirect_to cat_url(current_cat)
+    end
   end
 
   def new
