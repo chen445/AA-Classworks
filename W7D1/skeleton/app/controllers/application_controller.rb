@@ -19,4 +19,12 @@ class ApplicationController < ActionController::Base
     def logged_in?
         !!current_user
     end
+
+
+    def already_login
+        if current_user
+            redirect_to cats_url
+        end 
+    end 
+
 end

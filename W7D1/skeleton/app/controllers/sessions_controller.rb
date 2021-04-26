@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-
+    before_action :already_login
     def new
         render :new
     end

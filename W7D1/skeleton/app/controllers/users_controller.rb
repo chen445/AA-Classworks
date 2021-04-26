@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action 
+    before_action :already_login
 
     def create
         @user = User.new(user_params)
