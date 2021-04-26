@@ -1,7 +1,12 @@
 class CatRentalRequestsController < ApplicationController
+  before_action :authorized_user
+
   def approve
-    current_cat_rental_request.approve!
-    redirect_to cat_url(current_cat)
+    if current_user.cats.includes?(current_cat)
+      current_cat_rental_request.approve!
+      redirect_to cat_url(current_cat)
+    else
+      
   end
 
   def create
