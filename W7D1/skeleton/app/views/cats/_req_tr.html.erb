@@ -20,5 +20,6 @@
     <% else %>
       <%= req.status %>
     <% end %>
+    <td><%= User.find_by(id: req.user_id).user_name %></td>
   </td>
 </tr>

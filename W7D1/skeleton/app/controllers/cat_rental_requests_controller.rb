@@ -2,15 +2,15 @@ class CatRentalRequestsController < ApplicationController
   before_action :authorized_user
 
   def approve
-    if current_user.cats.includes?(current_cat)
+    if current_user.cats.include?(current_cat)
       current_cat_rental_request.approve!
       redirect_to cat_url(current_cat)
-    else
-      
+    end
+
   end
 
   def create
-    @rental_request = CatRentalRequest.new(cat_rental_request_params)
+    @rental_request = current_user.rental_requests.new(cat_rental_request_params)
     if @rental_request.save
       redirect_to cat_url(@rental_request.cat)
     else
@@ -20,7 +20,7 @@ class CatRentalRequestsController < ApplicationController
   end
 
   def deny
-    if current_user.cats.includes?(current_cat)
+    if current_user.cats.include?(current_cat)
     current_cat_rental_request.deny!
     redirect_to cat_url(current_cat)
     end
@@ -44,4 +44,5 @@ class CatRentalRequestsController < ApplicationController
   def cat_rental_request_params
     params.require(:cat_rental_request).permit(:cat_id, :end_date, :start_date, :status)
   end
+
 end
