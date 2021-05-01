@@ -1,0 +1,81 @@
+// Use the gear_dropdown.png screenshot as a style guide
+// #gear-dropdown {
+//     position: absolute;
+//     top: auto;
+//     display: none;
+// }
+
+#gear-button:hover #gear-dropdown {
+    display: block;
+}
+
+#gear-button {
+    position: relative;
+}
+
+#gear-dropdown {
+    display: none;
+    position: absolute;
+    background-color: whitesmoke;
+    min-width: 160px;
+    box-shadow: -1px 4px 6px 1px rgba(0,0,0,0.09);
+    z-index: 1;
+    right: -10px;
+    top: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.editions {
+    border-bottom: lightgrey 1px solid;
+    color: grey;
+    display: block;
+}
+
+.dropdown-subtitle {
+    font-size: x-small;
+    color: grey;
+}
+
+
+.editions li:hover {
+    background-color: lightgrey;
+    color: black;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+
+}
+
+.help li a:hover {
+    text-decoration: underline cornflowerblue;
+}
+
+.help li a {
+    color:rgb(10, 76, 198)
+}
+
+.editions li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 100%;
+}
+
+.help li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+
+
+// #gear-button li {
+//     position: relative
+// }
+

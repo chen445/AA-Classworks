@@ -1,0 +1,15 @@
+.section-nav li:hover {
+    background-color: rgb(235, 235, 235);
+}
+.section-nav li:last-child:hover {
+    text-decoration: underline;
+}
+
+.section-nav ul {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid grey;
+}
+.section-nav ul li {
+    margin: 8px;
+}
