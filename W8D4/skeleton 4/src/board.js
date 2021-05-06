@@ -94,10 +94,14 @@ Board.prototype.isOccupied = function (pos) {
  */
 Board.prototype._positionsToFlip = function(pos, color, dir, piecesToFlip){
   const pos_arr = [];
-
-  if (!this.isValidPos(pos)) {
+  let [x,y] = dir;
+  let next = [pos[0]+x, pos[1]+y]
+  if (!this.isValidPos(next)) {
     return [];
+  }else if(!this.isMine(next,color)){
+    this.getPiece(next).flip();
   }
+
 
   return pos_arr;
 };
