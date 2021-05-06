@@ -92,18 +92,29 @@ Board.prototype.isOccupied = function (pos) {
  *
  * Returns empty array if no pieces of the opposite color are found.
  */
-Board.prototype._positionsToFlip = function(pos, color, dir, piecesToFlip){
-  const pos_arr = [];
+Board.prototype._positionsToFlip = function(pos, color, dir, piecesToFlip = []){
+
+
   let [x,y] = dir;
   let next = [pos[0]+x, pos[1]+y]
+
   if (!this.isValidPos(next)) {
     return [];
-  }else if(!this.isMine(next,color)){
-    this.getPiece(next).flip();
+
+  }else if(!this.isOccupied(next)) {
+    return [];
+
+  }else if(this.isMine(next, color)) {
+    return piecesToFlip;
+    
+  }else if(!this.isMine(next, color)) {
+    debugger
+    piecesToFlip.push(next);
+    this._positionsToFlip(next, color, dir, piecesToFlip = []);
+
   }
 
-
-  return pos_arr;
+  
 };
 
 /**
