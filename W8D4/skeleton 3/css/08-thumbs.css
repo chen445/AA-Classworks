@@ -1,0 +1,23 @@
+/* PHASE 2: Thumbs */
+.cat-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.thumb {
+  width: 32%;
+  padding-bottom: 18%; 
+  margin-bottom: 2%; 
+}
+
+.cat-group li{
+    width: 50px;
+    height: 50px;
+}
+
+.cat-group li:nth-child(3n+3){
+    display: flex;
+    margin-left: 5px;
+    margin-right: 10px;
+}
