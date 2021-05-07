@@ -108,10 +108,8 @@ Board.prototype._positionsToFlip = function(pos, color, dir, piecesToFlip = []){
     return piecesToFlip;
     
   }else if(!this.isMine(next, color)) {
-    debugger
     piecesToFlip.push(next);
-    this._positionsToFlip(next, color, dir, piecesToFlip = []);
-
+    return this._positionsToFlip(next, color, dir, piecesToFlip);
   }
 
   
@@ -123,7 +121,23 @@ Board.prototype._positionsToFlip = function(pos, color, dir, piecesToFlip = []){
  * color being flipped.
  */
 Board.prototype.validMove = function (pos, color) {
+  
+  if(this.isOccupied(pos)){
+    return false;
+  }else if(){
+    return false;
+  }else{
+    return true;
+  }
+
 };
+
+Board.prototype.validFlip = function(pos,color){
+  for(i=0; i<this.DIRS.length; i++){
+    this._positionsToFlip(pos,color,this.DIRS[i])
+  }
+}
+
 
 /**
  * Adds a new piece of the given color to the given position, flipping the
