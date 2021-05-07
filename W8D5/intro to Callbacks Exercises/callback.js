@@ -8,15 +8,15 @@ class Clock {
     this.hour=hour;
     this.minute = minute;
     this.second = second;
-    this.printTime()
-    setInterval(this._tick(), 1000);
+    this.printTime();
+    setInterval(this._tick.bind(this), 1000);
   }
 
 
   printTime() {
     // Format the time in HH:MM:SS
     // Use console.log to print it.
-    console.log(`${this.hour}:${this.minute}:${this.second}`)
+    console.log(`${this.hour}:${this.minute}:${this.second}`);
   }
 
   _tick(callback) {
