@@ -1,5 +1,5 @@
 Function.prototype.myBind =function(context){
-    return (context)=>{
+    return ()=>{
     this.apply(context)
     }
 }
