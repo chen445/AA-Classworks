@@ -14,17 +14,35 @@ MovingObject.prototype.draw = function(ctx){
     ctx.fill();
 }
 
-// MovingObject.prototype.move = function(ctx) {
+// const TIME = 1000/60
+MovingObject.prototype.move = function() {
+    // const velS=timea/TIME;
+    const that = this;
 
-// }
+    setInterval(function(){
+        let oldPos=that.pos
+        that.pos = [that.pos[0]+that.vel[0],that.pos[1]+that.vel[1]];
+        if(that.pos[0]>640){
+            that.pos[0]=0;
+        }else if(that.pos[0]<0){
+            that.pos[0]=640;
+        }
+        if(that.pos[1]>640){
+            that.pos[1]=0
+        }else if(that.pos[1]<0){
+            that.pos[1]=640;
+        }
+        console.log(that.pos)
+        that.draw(ctx);
+        that.remove(ctx,oldPos,that)
+    },1000)
+}
 
+MovingObject.prototype.remove =function(ctx,oldPos,object){
+    let rad=object.radius;
+    ctx.clearRect(oldPos[0]-rad,oldPos[1]-rad,rad*2,rad*2);
+}
 
-const mo = new MovingObject({
-  pos: [30, 30],
-  vel: [10, 10],
-  radius: 5,
-  color: "#00FF00"
-});
 
 // every 1 sec
 
