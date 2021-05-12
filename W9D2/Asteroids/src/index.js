@@ -12,16 +12,26 @@ window.Util = Util;
 
 document.addEventListener('DOMContentLoaded', function() {
     const canvas = document.getElementById('game-canvas');
-    canvas.width=640;
-    canvas.height=640;
+    canvas.width=320;
+    canvas.height=320;
     const ctx = canvas.getContext('2d');
     window.ctx= ctx;
+
+    ctx.fillStyle='#ccddff';
+    ctx.beginPath();
+    ctx.moveTo(0,0);
+    ctx.lineTo(0,320);
+    ctx.lineTo(320,320);
+    ctx.lineTo(320,0);
+    ctx.closePath();
+    ctx.fill();
+   
 
     const mo = new MovingObject({
         pos: [300, 30],
         vel: [0, 50],
         radius: 5,
-        color: "#00FF00"
+        color: "green"
     });
 
     const astA = new Asteroid();

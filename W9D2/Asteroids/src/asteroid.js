@@ -1,18 +1,21 @@
 const MovingObject = require('./moving_object.js')
 const Util = require('./utils.js')
 
-const COLOR = 'dark grey';
-const RADIUS = 25;
+const CONSTANTS= {
+    COLOR: 'darkgrey',
+    RADIUS: 10
+}
 
 function Asteroid(options) {
-    this.pos = Game.randomPos(640, 640)
-    this.vel = Util2.randomVec(25);  
-    this.RADIUS;
-    this.COLOR;
-    MovingObject.call(this, options);
+    // options.pos = options.pos || Game.randomPos(640, 640)
+    this.pos = Game.randomPos(320, 320)
+    this.vel = Util.randomVec(25);  
+    this.radius= CONSTANTS.RADIUS;
+    this.color= CONSTANTS.COLOR;
+    // MovingObject.call(this, options);
 };
 
 Util.inherits(Asteroid, MovingObject)
 
 
-Asteroid.color
+module.exports= Asteroid;

@@ -22,25 +22,29 @@ MovingObject.prototype.move = function() {
     setInterval(function(){
         let oldPos=that.pos
         that.pos = [that.pos[0]+that.vel[0],that.pos[1]+that.vel[1]];
-        if(that.pos[0]>640){
-            that.pos[0]=0;
+        if(that.pos[0]>320){
+            that.pos[0]=4;
         }else if(that.pos[0]<0){
-            that.pos[0]=640;
+            that.pos[0]=316;
         }
-        if(that.pos[1]>640){
-            that.pos[1]=0
+        if(that.pos[1]>320){
+            that.pos[1]=4;
         }else if(that.pos[1]<0){
-            that.pos[1]=640;
+            that.pos[1]=316;
         }
-        console.log(that.pos)
-        that.draw(ctx);
         that.remove(ctx,oldPos,that)
-    },1000)
+        that.draw(ctx);
+    },250)
 }
 
 MovingObject.prototype.remove =function(ctx,oldPos,object){
-    let rad=object.radius;
-    ctx.clearRect(oldPos[0]-rad,oldPos[1]-rad,rad*2,rad*2);
+    ctx.fillStyle = '#ccddff';
+
+    ctx.beginPath();
+    ctx.arc(oldPos[0],oldPos[1],object.radius+2,0,2*Math.PI,true);
+    ctx.fill();
+    // let rad=object.radius;
+    // ctx.clearRect(oldPos[0]-rad,oldPos[1]-rad,rad*2,rad*2);
 }
 
 
