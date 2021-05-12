@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const mo = new MovingObject({
         pos: [300, 30],
-        vel: [0, 50],
+        vel: [-0.7, 0.3],
         radius: 5,
         color: "green"
     });
