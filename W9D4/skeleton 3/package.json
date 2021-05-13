@@ -6,6 +6,7 @@
     "webpack": "webpack --mode=development --watch"
   },
   "dependencies": {
+    "fsevents": "^1.2.9",
     "webpack": "^4.6.0"
   },
   "devDependencies": {
