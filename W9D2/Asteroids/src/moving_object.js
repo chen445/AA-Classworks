@@ -16,8 +16,9 @@ MovingObject.prototype.draw = function(ctx){
 
 // const TIME = 1000/60
 MovingObject.prototype.move = function() {
-    // const velS=timea/TIME;
+    
     const that = this;
+    console.log(this.vel);
 
     setInterval(function(){
         let oldPos=that.pos
@@ -34,7 +35,7 @@ MovingObject.prototype.move = function() {
         }
         that.remove(ctx,oldPos,that)
         that.draw(ctx);
-    },250)
+    },10)
 }
 
 MovingObject.prototype.remove =function(ctx,oldPos,object){
