@@ -27,25 +27,42 @@ export function dogLinkCreator () {
 }
 
 const dropList =document.getElementsByClassName('drop-down-dog-list')[0];
+
 export function attachDogLinks(){
   let dogLinks=dogLinkCreator();
     dogLinks.forEach((dog)=>{
     dropList.append(dog);
   })
 }
+
+const dropDown = document.getElementsByClassName("drop-down-dog-nav")[0];
+
 function handleEnter(e){
   e.preventDefault();
   e.stopPropagation();
-  const children= e.currentTarget;
-  children=e.currentTarget.children;
-  for(i=0;i<children.length;i++){
+  let children = dropList.children;
+  for(let i=0;i<children.length;i++){
     let child= children[i];
-    
+    child.classList.add('show')
   }
 }
-dropList.addEventListener('mouseover',handleEnter)
+
+function handleLeave(e){
+  e.preventDefault();
+  e.stopPropagation();
+  let children = dropList.children;
+  for(let i=0;i<children.length;i++){
+    let child= children[i];
+    child.classList.remove('show')
+  }
+}
+
+
+
+
+dropDown.addEventListener('mouseenter',handleEnter)
+dropDown.addEventListener('mouseleave',handleLeave)
 
 
 
 attachDogLinks()
-console.log(dogLinkCreator())
