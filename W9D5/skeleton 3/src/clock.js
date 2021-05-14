@@ -14,9 +14,10 @@ class Clock {
 
     // 3. Call printTime.
     // this.printTime();
+    
     htmlGenerator(this.printTime(), clockElement );
-
     // 4. Schedule the tick at 1 second intervals.
+    // debugger
     setInterval(this._tick.bind(this), 1000);
   }
 
@@ -33,7 +34,7 @@ class Clock {
     this._incrementSeconds();
 
     // 2. Call printTime.
-    htmlGenerator(this.printTime(), clockElement );
+    htmlGenerator(this.printTime(), clockElement);
   }
 
   _incrementSeconds() {

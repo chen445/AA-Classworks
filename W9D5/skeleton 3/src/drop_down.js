@@ -15,7 +15,7 @@ export function dogLinkCreator () {
 
   for (const dog in dogs) {
     let a = document.createElement('a');
-    a.innerHTML = dog.innerHTML;
+    a.innerHTML = dog;
     a.href = dogs[dog];
 
     let li = document.createElement('li');
@@ -23,11 +23,29 @@ export function dogLinkCreator () {
     li.append(a);
     arr.push(li);
   }
-
   return arr;
 }
 
+const dropList =document.getElementsByClassName('drop-down-dog-list')[0];
+export function attachDogLinks(){
+  let dogLinks=dogLinkCreator();
+    dogLinks.forEach((dog)=>{
+    dropList.append(dog);
+  })
+}
+function handleEnter(e){
+  e.preventDefault();
+  e.stopPropagation();
+  const children= e.currentTarget;
+  children=e.currentTarget.children;
+  for(i=0;i<children.length;i++){
+    let child= children[i];
+    
+  }
+}
+dropList.addEventListener('mouseover',handleEnter)
 
 
 
+attachDogLinks()
 console.log(dogLinkCreator())
