@@ -1,3 +1,5 @@
+import {htmlGenerator} from './warmup.js';
+
 const clockElement=document.getElementById('clock');
 
 class Clock {
@@ -11,7 +13,8 @@ class Clock {
     this.seconds = currentTime.getSeconds();
 
     // 3. Call printTime.
-    this.printTime();
+    // this.printTime();
+    htmlGenerator(this.printTime(), clockElement );
 
     // 4. Schedule the tick at 1 second intervals.
     setInterval(this._tick.bind(this), 1000);
@@ -30,7 +33,7 @@ class Clock {
     this._incrementSeconds();
 
     // 2. Call printTime.
-    this.printTime();
+    htmlGenerator(this.printTime(), clockElement );
   }
 
   _incrementSeconds() {
@@ -55,6 +58,6 @@ class Clock {
   }
 }
 
+let clock = new Clock();
 
-
-module.exports = Clock;
+// module.exports = Clock;
