@@ -1,3 +1,4 @@
+
 import React from 'react'
 
 class Tile extends React.Component{
@@ -8,14 +9,29 @@ class Tile extends React.Component{
 
     render(){
       const tile = this.props.tile; 
+      let text
+      let cssStat
+        if(tile.explored){
+            cssStat="tile explored"
+            if(tile.bombed){
+                text='💣';
+                cssStat='tile bombed'
+            }else{
+                text = tile.adjacentBombCount() >1 ? tile.adjacentBombCount(): "";
 
-      const text = tile.explored && tile.bombed ? '💣' : 
-                   tile.explored && !tile.bombed ? tile.adjacentBombCount() :
-                   tile.flagged ? '⚐' : ''
-  
+            }
+        }else if(tile.flagged){
+            text = '⚐'
+            cssStat = 'tile flagged'
+        }else{
+            text = ""
+            cssStat = "tile"
+        }
+      
       return(
-        <div>{text}</div>
-        
+        <div className="tile-container">
+        <div className={cssStat}>{text}T</div>
+        </div>
         )
       }
     }
