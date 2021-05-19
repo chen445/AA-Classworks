@@ -6,7 +6,7 @@ import Tile from './Tile'
 class Game extends React.Component{
     constructor(props){
         super(props);
-        this.state={board: new Minesweeper.Board()}
+        this.state={board: new Minesweeper.Board(4, 8)}
         this.updateGame= this.updateGame.bind(this);
     }
 
@@ -18,7 +18,6 @@ class Game extends React.Component{
 
         return(
             <div>
-                <h1></h1>
                 <div>
                     <Board
                         board={this.state.board}
