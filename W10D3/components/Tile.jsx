@@ -3,15 +3,13 @@ import React from 'react'
 
 class Tile extends React.Component{
     constructor(props){
-        super(props)
-        
+        super(props);
+        this.handleClick=this.handleClick.bind(this)
     }
 
     handleClick(e){
-        e.stopPropagation();
-        if(e.altKey){
-            
-        }
+       const flagged = e.altKey ? true : false;
+       this.props.updateGame(this.props.tile, flagged)
     }
 
     render(){
@@ -19,28 +17,25 @@ class Tile extends React.Component{
       let text
       let cssStat
         if(tile.explored){
-            cssStat="tile explored"
             if(tile.bombed){
                 text='💣';
-                cssStat='tile bombed'
+                cssStat=' bombed'
             }else{
-                text = tile.adjacentBombCount() >1 ? tile.adjacentBombCount(): "";
-
+                text = tile.adjacentBombCount() >0 ? tile.adjacentBombCount(): "";
+                cssStat="explored"
             }
         }else if(tile.flagged){
             text = '⚐'
-            cssStat = 'tile flagged'
+            cssStat = 'flagged'
         }else{
-            text = ""
-            cssStat = "tile"
+            cssStat = "unexplored"
         }
+        cssStat = `tile ${cssStat}`
 
       
       return(
-        <div className="tile-container">
-        <div onClick={handleClick} className={cssStat}>{text}</div>
-        </div>
-        )
+        <div className={cssStat} onClick={this.handleClick}>{text}</div>
+        );
       }
     }
     
