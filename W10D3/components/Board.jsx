@@ -18,7 +18,7 @@ class Board extends React.Component{
                 ></Tile>)
             });
             return(
-              <div key={index}>{tiles}</div>
+              <div className="row" key={index}>{tiles}</div>
             )
         });
         return(

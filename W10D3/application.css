@@ -48,28 +48,46 @@ input[type="submit"] {
 
 
 .bombed{
-  
+    background-color: red;
+    border-style: inset;
 }
 
 .explored{
- 
+    background-color:grey;
+    border-style: inset;
 }
 
 .flagged{
-
+    background-color: yellow;
+    border-style: inset;
 }
 
-.tile-container{
+.row{
  display: flex;
- flex-wrap: wrap;
+ justify-content: center;
+
+}
+.row:first-child{
+    margin-top: 100px;
 }
 
 .tile{
   display: block;
-  width: 58px;
-  height: 58px;
-  border: 1px solid #000;
-  border-radius: 5px;
+  width: 20px;
+  height: 20px;
+  background-color: lightgrey;
+  border-style: outset;
+  border-width: 2px;
+  line-height: 20px;
+  padding-left: 3px;
+  font-size: 14px;
+  font-weight: bold;
+  position: relative;
+  text-align: center;
   
-
 }
+
+.root{
+    margin: 0 auto;
+}
+

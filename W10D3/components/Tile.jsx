@@ -7,6 +7,13 @@ class Tile extends React.Component{
         
     }
 
+    handleClick(e){
+        e.stopPropagation();
+        if(e.altKey){
+            
+        }
+    }
+
     render(){
       const tile = this.props.tile; 
       let text
@@ -27,10 +34,11 @@ class Tile extends React.Component{
             text = ""
             cssStat = "tile"
         }
+
       
       return(
         <div className="tile-container">
-        <div className={cssStat}>{text}T</div>
+        <div onClick={handleClick} className={cssStat}>{text}</div>
         </div>
         )
       }
