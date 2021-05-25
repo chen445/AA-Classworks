@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.ReceiveTodos = ReceiveTodos;
     window.ReceiveSteps = ReceiveSteps;
     window.allTodos = allTodos;
-    const contentEle = document.getElementById("content")
+    const contentEle = document.getElementById("root")
     ReactDOM.render(<Root store={store}/>, contentEle);
 })
 
